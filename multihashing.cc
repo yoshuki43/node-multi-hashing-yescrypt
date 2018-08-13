@@ -10,8 +10,7 @@ extern "C" {
     #include "quark.h"
     #include "scryptjane.h"
     #include "scryptn.h"
-    #include "yescrypt/yescrypt.h"
-    #include "yescrypt/sha256_Y.h"
+    #include "yespower/yespower.h"
     #include "skein.h"
     #include "x11.h"
     #include "groestl.h"
@@ -190,7 +189,7 @@ void yescrypt(const FunctionCallbackInfo<Value>& args) {
    char* output = new char[32];
 
    
-   yescrypt_hash(input, output);
+   yespower_hash(input, output);
 
    Local<Object> buff = Nan::NewBuffer(output, 32).ToLocalChecked();
    args.GetReturnValue().Set(buff);
