@@ -37,7 +37,7 @@
 extern "C" {
 #endif
 
-void yespower_hash(const char *input, char *output);
+void yespower_hash(const char *input, size_t inputlen, char *output);
 
 /**
  * Internal type used by the memory allocator.  Please do not use it directly.

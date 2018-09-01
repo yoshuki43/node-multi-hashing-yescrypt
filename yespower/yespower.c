@@ -24,14 +24,14 @@
 
 #include "yespower.h"
 
-void yespower_hash(const char *input, char *output)
+void yespower_hash(const char *input, size_t inputlen, char *output)
 {
 	yespower_params_t params = {
 		.version = YESPOWER_0_5,
 		.N = 2048,
 		.r = 8,
 		.pers = (const uint8_t *)input,
-		.perslen = 80
+		.perslen = inputlen
 	};
-	yespower_tls((unsigned char *)input, 80, &params, (yespower_binary_t *)output);
+	yespower_tls((unsigned char *)input, inputlen, &params, (yespower_binary_t *)output);
 }
